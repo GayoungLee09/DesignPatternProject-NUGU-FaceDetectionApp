@@ -1,0 +1,161 @@
+#:kivy 1.11.1
+<LoginScreen@Screen>:
+    name: "main_screen"
+    on_enter:
+        app.animate_background(lla)
+        app.animate_card(box_card)
+    LoginLayout:
+        id: lla
+    MDCard:
+        id: box_card
+        orientation: "vertical"
+        size_hint: [0.8, 0.6]
+        pos_hint: {"center_x": 0.5, "center_y": 0}
+        
+        BoxLayout:
+            padding: [15, 0, 15, 0]
+            orientation: "vertical"
+            MDLabel:
+                text: "NUGU"
+                text_size: self.size
+                font_size: 40
+                bold: True
+                halign: 'center'
+                valign: 'middle'
+    
+            MDLabel:
+                text: str(app.getDate())+'\n'+str(app.getTime())
+                halign: "center"
+                valign: "middle"
+                bold: True
+                color: utils.get_color_from_hex("#006233")
+        
+        MDTextField:
+            id: name
+            hint_text: "Name"
+            helper_text: "Please input your name"
+            padding_x:[10,0]
+            size_hint_x: 0.8
+            pos_hint: {"center_x": 0.5}
+            
+        BoxLayout:
+            orientation: "vertical"
+            MDFillRoundFlatButton:
+                text: "REGISTER FACE"
+                bold: True
+                size_hint_x: 0.8
+                pos_hint: {"center_x": .5}
+                on_release:
+                    app.start_register()
+            MDBoxLayout:
+                pos_hint: {"center_x": .5}
+                spacing: 1     
+                
+            MDFillRoundFlatButton:
+                text: "START RECOGNITION"
+                bold: True
+                size_hint_x: 0.8
+                pos_hint: {"center_x": .5}
+                on_release:
+                    app.start_recognition()
+                    
+            MDBoxLayout:
+                pos_hint: {"center_x": .5}
+                spacing: 1 
+                
+            MDFillRoundFlatButton:
+                text: "CHECK VISITOR"
+                bold: True
+                size_hint_x: 0.8
+                pos_hint: {"center_x": .5}
+                on_release:
+                    app.manage_screens("check_visitor_screen", "add")
+                    app.change_screen("check_visitor_screen")
+                    
+            MDBoxLayout:
+                pos_hint: {"center_x": .5}
+                spacing: 1
+                
+            MDFillRoundFlatButton:
+                text: "EXIT"
+                bold: True
+                size_hint_x: 0.8
+                pos_hint: {"center_x": .5}
+                on_release:
+                    app.get_running_app().stop()
+            
+<RegistrationScreen@Screen>:
+    name: "check_visitor_screen"
+    orientation: 'vertical'
+    
+    ScrollView:
+        scroll_type:['bars','content']
+        bar_width:20
+        Label:
+            size_hint_y: None
+            height: self.texture_size[1]
+            text_size: self.width, None
+            text: app.get_line()
+            color: utils.get_color_from_hex("#0f0f0f")
+            font_size: '30sp'
+            
+    BoxLayout:
+        orientation: "vertical"
+        MDFillRoundFlatButton:
+            text: "BACK TO MAIN"
+            bold: True
+            size_hint_x: 0.8
+            pos_hint: {"center_x": .5}
+            on_release:
+                app.change_screen("main_screen")
+
+<LoginLayout@BoxLayout>:
+    orientation: "vertical"
+    BoxLayout:
+        size_hint_y: 0.1
+        MDLabel:
+            text: "IG: @lonecat1911"
+            
+    BoxLayout:
+        id: bx
+        orientation: "vertical"
+        size_hint_y: 0.1
+        canvas.before:
+            Color:
+                rgba: utils.get_color_from_hex("#6633FF")
+            RoundedRectangle:
+                pos: self.pos
+                size: self.size
+                radius: [0, 0, 30, 30]
+                
+    FloatLayout:
+        id: circles
+        orientation: "horizontal"
+        
+        Scatter:
+            size_hint: None,None
+            
+            Widget:
+                canvas.before:
+                    Color:
+                        rgba: utils.get_color_from_hex("#0000FF")
+                    Ellipse:
+                        pos: self.pos
+                        
+        Scatter:
+            size_hint: None,None
+            Widget:
+                canvas.before:
+                    Color:
+                        rgba: utils.get_color_from_hex("#7f00ff")
+                    Ellipse:
+                        pos: self.pos
+                        
+        Scatter:
+            size_hint: None, None
+            Widget:
+                canvas.before:
+                    Color:
+                        rgba: utils.get_color_from_hex("#00B7EB")
+                    Ellipse:
+                        pos: self.pos
