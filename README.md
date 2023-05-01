@@ -59,13 +59,14 @@
 ### 1) 결과 화면 및 설명
 
 - main 화면은 아래의 사진과 같으며 코드를 실행하였을 때 배경에 애니메이션 효과가 적용되어 아래에서 화면이 올라옵니다. main 화면에서 현재 날짜와 시간을 확인할 수 있으며 이름 입력란, 얼굴을 등록하는 ‘REGISTER’ 버튼, 얼굴을 인식하는 ‘RECOGNITION’ 버튼, 방문기록을 조회하는 ‘CHECK VISITOR’ 버튼, 앱을 종료하는 ‘EXIT’버튼이 있습니다.
-<img width="30%" src="https://user-images.githubusercontent.com/81952512/235420818-73649c7b-bc14-4739-a404-629088e9e701.png"/>
+ <img width="30%" src="https://user-images.githubusercontent.com/81952512/235420818-73649c7b-bc14-4739-a404-629088e9e701.png"/>
 
  <br/>
  
 - 얼굴을 등록하고 싶은 경우
 
   main 화면에서 이름 입력란에 영문 이름을 입력하고 ‘REGISTER’ 버튼을 클릭합니다. 내장된 카메라가 켜지며 카메라 속 화면에서 얼굴 부분만 crop 되어 사용자의 얼굴 사진을 저장합니다. 100장의 사진을 추출하면 카메라가 꺼지고 등록하는 과정이 끝납니다.
+  
  <img width="30%" src="https://user-images.githubusercontent.com/81952512/235423177-0a6e94d4-5fc4-4937-b19c-62fae06b6d83.png"/> <img width="8%" src="https://user-images.githubusercontent.com/81952512/235421659-06ad7551-8dfb-4a4f-824b-7a82012a59ca.png"/>
  <br/>
  
